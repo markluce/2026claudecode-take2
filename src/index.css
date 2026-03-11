@@ -1,15 +1,29 @@
-:root {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
-    sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0f0f1a;
+  --color-surface: #1a1a2e;
+  --color-surface-hover: #222240;
+  --color-border: #2a2a4a;
+  --color-text: #e0e0f0;
+  --color-text-secondary: #a0a0c0;
+  --color-accent: #d4a574;
+  --color-accent-light: #e8c9a0;
+  --color-slash: #7c6fe0;
+  --color-keyboard: #4ecdc4;
+  --color-cli: #ff6b9d;
+  --color-core: #ffd93d;
+  --color-vim: #6bcf7f;
+  --color-search-bg: #16162a;
 }
 
 body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   margin: 0;
   min-width: 320px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
