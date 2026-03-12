@@ -222,8 +222,17 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="text-center p-8 text-text-secondary text-sm border-t border-border mt-8">
-        <p>
+      <footer className="text-center px-8 pt-10 pb-12 border-t border-border mt-8">
+        <p className="text-lg font-medium text-text mb-2">
+          由 Mark Luce 與 Claude (Anthropic) 攜手合作打造
+        </p>
+        <a
+          href="mailto:markluceai+service@gmail.com"
+          className="text-accent hover:text-accent-light transition-colors text-base no-underline"
+        >
+          markluceai+service@gmail.com
+        </a>
+        <p className="text-text-secondary text-sm mt-4">
           Claude Code 指令參考手冊 — 繁體中文版 | 資料來源：Claude Code 官方文件
         </p>
       </footer>
