@@ -30,7 +30,7 @@ function Welcome({ onBack, theme, toggleTheme }) {
           Welcome
         </h1>
         <p className="text-text-secondary text-lg">
-          D B T C 例會
+          AI Innovator 進階分會（中部）
         </p>
       </header>
 
@@ -46,15 +46,24 @@ function Welcome({ onBack, theme, toggleTheme }) {
         >
           <p className="text-4xl mb-6">🎉</p>
           <h2 className="text-3xl font-bold text-text mb-4">
-            歡迎 D B T C 的會員們
+            歡迎 AI Innovator 進階分會（中部）的夥伴們
           </h2>
           <h3 className="text-xl text-accent-light font-semibold mb-3">
-            參與本次例會
+            參與本次聚會
           </h3>
           <p className="text-text-secondary text-lg leading-relaxed max-w-[600px] mx-auto">
-            很高興大家今天齊聚一堂！本次例會我們將一起探索如何使用 Claude Code
+            很高興大家今天齊聚一堂！本次聚會我們將一起探索如何使用 Claude Code
             打造屬於自己的網站，從零開始到公開上線。
           </p>
+        </div>
+
+        {/* Group Photo */}
+        <div className="rounded-2xl overflow-hidden mb-8 border border-border">
+          <img
+            src="https://github.com/user-attachments/assets/0e740016-9d5d-4d65-a5c3-f0ef2d4e3461"
+            alt="AI Innovator 進階分會（中部）合照"
+            className="w-full h-auto"
+          />
         </div>
 
         {/* Agenda */}
