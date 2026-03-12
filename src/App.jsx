@@ -86,7 +86,7 @@ function App() {
         <p className="text-text-secondary text-lg mb-4">
           所有指令、快捷鍵與 CLI 選項的完整參考手冊（繁體中文版）
         </p>
-        <div className="flex gap-3 justify-center">
+        <div className="flex gap-3 justify-center mb-4">
           <span className="bg-accent/15 text-accent-light px-4 py-1.5 rounded-full text-sm border border-accent/30 backdrop-blur-sm">
             共 {commands.length} 個指令
           </span>
@@ -94,6 +94,15 @@ function App() {
             {categories.length} 個分類
           </span>
         </div>
+        <p className="text-text-secondary/80 text-sm">
+          由 Mark Luce 與 Claude (Anthropic) 攜手合作打造 |{" "}
+          <a
+            href="mailto:markluceai+service@gmail.com"
+            className="text-accent-light/70 hover:text-accent-light transition-colors no-underline"
+          >
+            markluceai+service@gmail.com
+          </a>
+        </p>
       </header>
 
       {/* Controls */}
