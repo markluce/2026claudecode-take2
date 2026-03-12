@@ -1,6 +1,7 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
 import { categories, commands } from "./data/commands";
 import BeginnerGuide from "./components/BeginnerGuide";
+import CommandModal from "./components/CommandModal";
 
 const categoryBorderColors = {
   slash: "border-l-slash",
@@ -35,7 +36,9 @@ function useTheme() {
 function App() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCmd, setSelectedCmd] = useState(null);
   const { theme, toggle: toggleTheme } = useTheme();
+  const closeModal = useCallback(() => setSelectedCmd(null), []);
 
   const filteredCommands = useMemo(() => {
     return commands.filter((cmd) => {
@@ -180,22 +183,14 @@ function App() {
 
                 <div className="grid grid-cols-[repeat(auto-fill,minmax(340px,1fr))] gap-3">
                   {grouped[cat.id].map((cmd, i) => {
-                    const CardTag = cmd.docUrl ? "a" : "div";
-                    const linkProps = cmd.docUrl
-                      ? {
-                          href: cmd.docUrl,
-                          target: "_blank",
-                          rel: "noopener noreferrer",
-                        }
-                      : {};
                     const borderColor =
                       categoryBorderColors[cmd.category] || "";
                     return (
-                      <CardTag
+                      <div
                         key={i}
-                        className={`block bg-surface border border-border rounded-xl px-5 py-4 transition-all duration-200 border-l-[3px] ${borderColor} hover:bg-surface-hover hover:-translate-y-0.5 hover:shadow-lg ${cmd.docUrl ? "no-underline text-inherit cursor-pointer group" : ""}`}
+                        className={`block bg-surface border border-border rounded-xl px-5 py-4 transition-all duration-200 border-l-[3px] ${borderColor} hover:bg-surface-hover hover:-translate-y-0.5 hover:shadow-lg cursor-pointer group`}
                         style={{ "--tw-shadow-color": "var(--t-card-shadow)" }}
-                        {...linkProps}
+                        onClick={() => setSelectedCmd(cmd)}
                       >
                         <div className="mb-1.5 flex items-center">
                           <code
@@ -204,14 +199,9 @@ function App() {
                           >
                             {cmd.command}
                           </code>
-                          {cmd.docUrl && (
-                            <span
-                              className="ml-2 text-sm opacity-40 group-hover:opacity-100 transition-opacity"
-                              title="開啟官方文件"
-                            >
-                              &#x2197;
-                            </span>
-                          )}
+                          <span className="ml-auto text-xs text-text-secondary opacity-0 group-hover:opacity-60 transition-opacity">
+                            點擊查看詳情
+                          </span>
                         </div>
                         <div className="text-[0.92rem] text-text mb-1.5 font-medium">
                           {cmd.brief}
@@ -222,7 +212,7 @@ function App() {
                           </span>
                           {cmd.useCase}
                         </div>
-                      </CardTag>
+                      </div>
                     );
                   })}
                 </div>
@@ -237,6 +227,11 @@ function App() {
           Claude Code 指令參考手冊 — 繁體中文版 | 資料來源：Claude Code 官方文件
         </p>
       </footer>
+
+      {/* Command Detail Modal */}
+      {selectedCmd && (
+        <CommandModal cmd={selectedCmd} onClose={closeModal} />
+      )}
     </div>
   );
 }
