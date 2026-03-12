@@ -106,6 +106,23 @@ function App() {
         <p className="text-text-secondary/60 text-xs mt-2">
           馬克路思科技有限公司 | 統一編號 60670979 | 臺中市中區大誠里臺灣大道一段501號10樓之1
         </p>
+        <p className="text-text-secondary/80 text-sm font-bold mt-3">
+          <a
+            href="https://markluce.ai/"
+            className="text-accent-light/70 hover:text-accent-light transition-colors no-underline"
+          >
+            markluce.ai
+          </a>
+          {" | "}
+          <a
+            href="https://github.com/markluce/2026claudecode-take2"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent-light/70 hover:text-accent-light transition-colors no-underline"
+          >
+            GitHub Repo
+          </a>
+        </p>
       </header>
 
       {/* Controls */}
