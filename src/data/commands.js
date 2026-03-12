@@ -33,7 +33,7 @@ export const commands = [
     command: "/add-dir <路徑>",
     brief: "新增工作目錄到目前的工作階段",
     useCase: "需要同時存取多個專案時，例如：/add-dir ../sibling-repo",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/cli-reference",
+    docUrl: "https://code.claude.com/docs/en/cli-reference",
     detail: "將額外的目錄加入目前工作階段的上下文中。Claude 可以讀取、搜尋和編輯這些目錄中的檔案。適合在微服務架構或 monorepo 中需要同時操作多個子專案的情境。可以一次新增多個目錄，路徑支援相對路徑和絕對路徑。新增後 Claude 就能跨目錄理解程式碼的關聯性。",
   },
   {
@@ -41,7 +41,7 @@ export const commands = [
     command: "/agents",
     brief: "管理代理人設定與建立子代理人",
     useCase: "自訂代理人行為與設定",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/sub-agents",
+    docUrl: "https://code.claude.com/docs/en/sub-agents",
     detail: "開啟代理人管理介面，可以查看、建立和設定子代理人（Sub-agents）。子代理人是專門化的 AI 助手，擁有獨立的系統提示、工具集和模型設定。例如可以建立一個專門做程式碼審查的代理人，或是一個只處理測試撰寫的代理人。Claude 會在適當時機自動呼叫對應的子代理人來完成特定任務。",
   },
   {
@@ -49,7 +49,7 @@ export const commands = [
     command: "/btw <問題>",
     brief: "快速提問，不加入對話歷史",
     useCase: "臨時查詢不想影響主對話脈絡的問題",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "在不影響目前對話脈絡的情況下快速提問。這個指令發送的問題和回應不會被加入對話歷史，因此不會佔用上下文空間，也不會影響後續對話的走向。適合在處理複雜任務時臨時查詢語法、確認 API 用法等不需要保留記錄的小問題。",
   },
   {
@@ -57,7 +57,7 @@ export const commands = [
     command: "/chrome",
     brief: "設定 Chrome 瀏覽器整合",
     useCase: "啟用 Chrome 自動化功能進行網頁操作",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/chrome",
     detail: "設定並啟用 Chrome 瀏覽器整合功能。啟用後 Claude 可以自動化操作 Chrome 瀏覽器，包括開啟網頁、點擊元素、填寫表單、擷取畫面截圖等。這對於前端開發除錯、網頁爬蟲、端對端測試等場景非常有用。需要本機安裝 Chrome 瀏覽器才能使用。",
   },
   {
@@ -65,7 +65,7 @@ export const commands = [
     command: "/clear",
     brief: "清除對話歷史並釋放上下文空間",
     useCase: "對話過長時重新開始，別名：/reset、/new",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "完全清除目前的對話歷史，釋放所有已使用的上下文空間，讓你從零開始一段新對話。這不會影響已儲存的記憶（CLAUDE.md）或專案設定。當對話變得太長、Claude 開始忘記早期內容、或是你想切換到完全不同的任務時特別有用。別名包括 /reset 和 /new。",
   },
   {
@@ -73,7 +73,7 @@ export const commands = [
     command: "/compact [指示]",
     brief: "壓縮對話內容，可選擇性聚焦特定主題",
     useCase: "減少上下文使用量，例如：/compact 聚焦在認證邏輯",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/memory",
+    docUrl: "https://code.claude.com/docs/en/memory",
     detail: "智慧壓縮目前的對話內容以減少上下文使用量。Claude 會摘要之前的對話，保留重要資訊但大幅減少 Token 消耗。可以選擇性地提供指示來告訴 Claude 壓縮時應該聚焦保留哪些主題。例如 /compact 聚焦在認證邏輯 會確保認證相關的討論內容被完整保留。當上下文接近上限時自動觸發此功能。",
   },
   {
@@ -81,7 +81,7 @@ export const commands = [
     command: "/config",
     brief: "開啟設定介面（Config 分頁）",
     useCase: "修改各項設定，別名：/settings",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/settings",
+    docUrl: "https://code.claude.com/docs/en/settings",
     detail: "開啟 Claude Code 的設定介面，顯示 Config 分頁。在這裡可以修改各種設定，包括預設模型選擇、權限模式、主題偏好、隱私設定等。設定分為全域設定（影響所有專案）和專案級設定（僅影響當前專案）。別名為 /settings。",
   },
   {
@@ -89,7 +89,7 @@ export const commands = [
     command: "/context",
     brief: "以彩色網格視覺化顯示目前上下文使用量",
     useCase: "檢視 Token 使用狀態",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "以視覺化的彩色網格顯示目前的上下文窗口使用狀況。每個方塊代表一定數量的 Token，不同顏色代表不同類型的內容（系統提示、對話歷史、工具結果等）。這能幫助你了解上下文空間還剩多少，以及什麼內容佔用了最多空間，從而決定是否需要使用 /compact 或 /clear。",
   },
   {
@@ -97,7 +97,7 @@ export const commands = [
     command: "/copy",
     brief: "將最後一則 AI 回應複製到剪貼簿",
     useCase: "快速複製程式碼或回應內容",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "將 Claude 最後一次回應的完整內容複製到系統剪貼簿。這比手動選取文字更方便，特別是當回應包含長段程式碼或多個程式碼區塊時。複製的內容包含完整的格式化文字，可以直接貼到編輯器、文件或聊天工具中使用。",
   },
   {
@@ -105,7 +105,7 @@ export const commands = [
     command: "/cost",
     brief: "顯示 Token 使用統計與花費追蹤",
     useCase: "查看目前工作階段的費用與用量",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/costs",
     detail: "顯示目前工作階段的詳細 Token 使用統計和費用追蹤。包括輸入 Token 數、輸出 Token 數、快取命中率，以及依據目前定價計算的預估費用。幫助你監控使用成本，特別是在使用 API 付費方案時。",
   },
   {
@@ -113,7 +113,7 @@ export const commands = [
     command: "/desktop",
     brief: "在 Claude Code Desktop 應用程式中繼續目前工作階段",
     useCase: "從終端機切換到桌面應用程式，別名：/app",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/desktop",
     detail: "將目前的終端機工作階段轉移到 Claude Code Desktop 桌面應用程式中繼續。桌面版提供更好的視覺化介面、圖片顯示、以及更舒適的操作體驗。對話歷史和上下文會完整保留。別名為 /app。",
   },
   {
@@ -121,7 +121,7 @@ export const commands = [
     command: "/diff",
     brief: "開啟互動式差異檢視器查看未提交的變更",
     useCase: "在提交前檢視所有程式碼變更",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "開啟互動式的差異檢視器（diff viewer），顯示目前所有未提交的程式碼變更。可以清楚看到 Claude 對每個檔案做了哪些修改，包括新增、刪除和修改的行數。這是在讓 Claude 提交程式碼之前進行最終確認的重要步驟，確保所有變更都符合你的預期。",
   },
   {
@@ -129,7 +129,7 @@ export const commands = [
     command: "/doctor",
     brief: "診斷並驗證 Claude Code 安裝與設定",
     useCase: "排除安裝問題或設定錯誤",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/troubleshooting",
     detail: "執行全面的診斷檢查，驗證 Claude Code 的安裝狀態、環境設定、認證資訊、相依套件等是否正確。會檢查 Node.js 版本、npm 設定、認證狀態、MCP 連線等，並提供具體的修復建議。遇到任何問題時先跑 /doctor 通常能快速定位問題。",
   },
   {
@@ -137,7 +137,7 @@ export const commands = [
     command: "/exit",
     brief: "離開 CLI",
     useCase: "結束目前的 Claude Code 工作階段，別名：/quit",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "安全地結束目前的 Claude Code 互動式工作階段並離開程式。對話歷史會自動儲存，下次可以使用 claude -c 繼續。別名為 /quit。也可以使用快捷鍵 Ctrl+D 達到相同效果。",
   },
   {
@@ -145,7 +145,7 @@ export const commands = [
     command: "/export [檔名]",
     brief: "將對話匯出為純文字檔",
     useCase: "儲存對話記錄，例如：/export session.txt",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "將目前的完整對話歷史匯出為純文字檔案。包含所有的提問、回應、工具呼叫結果等內容。可以指定檔名，預設會使用時間戳記命名。匯出的檔案適合用來做文件記錄、分享給團隊成員、或作為未來參考。",
   },
   {
@@ -153,7 +153,7 @@ export const commands = [
     command: "/extra-usage",
     brief: "設定額外用量以在達到速率限制時繼續工作",
     useCase: "管理和擴展 API 速率限制",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "當你達到目前方案的速率限制時，可以使用此指令設定額外的用量配額，讓工作不中斷地繼續進行。額外用量可能會產生額外費用。這對於處理緊急任務或大型專案時特別有用，避免因速率限制而被迫等待。",
   },
   {
@@ -161,7 +161,7 @@ export const commands = [
     command: "/fast [on|off]",
     brief: "切換快速模式",
     useCase: "使用相同模型但更快的輸出速度",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/fast-mode",
     detail: "開啟或關閉快速模式。快速模式使用與一般模式相同的 AI 模型，但優化了輸出速度，讓回應產生得更快。適合需要快速迭代的場景。不帶參數時會切換（toggle）目前的狀態，也可以明確指定 on 或 off。",
   },
   {
@@ -169,7 +169,7 @@ export const commands = [
     command: "/feedback [報告]",
     brief: "提交回饋或錯誤報告",
     useCase: "回報問題或建議，別名：/bug",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "向 Claude Code 團隊提交回饋或錯誤報告。可以直接在指令後方描述問題或建議，系統會收集相關的環境資訊一併提交。別名為 /bug。這是改善 Claude Code 最直接的方式，團隊會積極處理使用者回饋。",
   },
   {
@@ -177,7 +177,7 @@ export const commands = [
     command: "/fork [名稱]",
     brief: "建立目前對話的分支",
     useCase: "嘗試不同方向而不影響主對話，例如：/fork backend-refactor",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "從目前的對話狀態建立一個分支（fork），讓你可以在不影響原始對話的情況下嘗試不同的方向。例如，你可以 fork 一個分支來嘗試不同的實作方案，如果不滿意就回到原始對話繼續。可以為分支命名以便日後識別，例如 /fork backend-refactor。",
   },
   {
@@ -185,7 +185,7 @@ export const commands = [
     command: "/help",
     brief: "顯示說明與可用指令",
     useCase: "查看所有可用指令與使用方式",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/overview",
+    docUrl: "https://code.claude.com/docs/en/overview",
     detail: "顯示 Claude Code 的說明頁面，包括所有可用的斜線指令、快捷鍵、CLI 旗標等完整參考資訊。是快速查閱指令用法的最佳入口。新手建議從這裡開始認識 Claude Code 的所有功能。",
   },
   {
@@ -193,7 +193,7 @@ export const commands = [
     command: "/hooks",
     brief: "管理工具事件的鉤子設定",
     useCase: "在特定工具呼叫時自動執行腳本",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/hooks",
+    docUrl: "https://code.claude.com/docs/en/hooks",
     detail: "管理鉤子（Hooks）設定，讓你在特定事件發生時自動執行自訂腳本。例如可以設定在每次 Claude 編輯檔案後自動執行 linter、在每次提交前自動跑測試、或在特定工具被呼叫時觸發通知。鉤子是自動化工作流程的強大機制，可以確保程式碼品質並減少手動操作。",
   },
   {
@@ -201,7 +201,7 @@ export const commands = [
     command: "/ide",
     brief: "管理 IDE 整合並顯示狀態",
     useCase: "檢查與設定 VS Code 等 IDE 的連線",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/ide-integrations",
+    docUrl: "https://code.claude.com/docs/en/vs-code",
     detail: "管理 Claude Code 與 IDE（整合開發環境）的整合。可以查看目前的 IDE 連線狀態、設定新的整合、或排除連線問題。支援 VS Code、JetBrains 系列等主流 IDE。整合後可以在 IDE 中直接與 Claude Code 互動，享受更流暢的開發體驗。",
   },
   {
@@ -209,7 +209,7 @@ export const commands = [
     command: "/init",
     brief: "初始化專案並建立 CLAUDE.md 指引",
     useCase: "記錄專案架構與開發慣例",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/memory",
+    docUrl: "https://code.claude.com/docs/en/memory",
     detail: "為目前的專案初始化 Claude Code 設定，自動分析專案結構並建立 CLAUDE.md 檔案。CLAUDE.md 是一個特殊的記憶檔，記錄專案的架構、技術棧、編碼慣例、常用指令等資訊。Claude 在每次對話開始時都會讀取這個檔案，確保它理解你的專案脈絡和偏好。強烈建議每個專案都執行一次。",
   },
   {
@@ -217,7 +217,7 @@ export const commands = [
     command: "/insights",
     brief: "產生 Claude Code 使用分析報告",
     useCase: "分析使用模式與效率統計",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "產生一份關於你使用 Claude Code 的分析報告。包括使用頻率、最常用的功能、效率趨勢、模型偏好等統計數據。幫助你了解自己的使用模式，找出可以進一步優化工作流程的機會。",
   },
   {
@@ -225,7 +225,7 @@ export const commands = [
     command: "/install-github-app",
     brief: "為儲存庫設定 Claude GitHub Actions 應用程式",
     useCase: "設定 CI/CD 整合自動化工作流程",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/github-actions",
+    docUrl: "https://code.claude.com/docs/en/github-actions",
     detail: "為你的 GitHub 儲存庫安裝 Claude GitHub Actions 應用程式。安裝後 Claude 可以自動參與 GitHub 工作流程，包括自動回覆 Pull Request 的留言、進行程式碼審查、在 Issue 被指派時自動處理任務等。這是團隊協作和 CI/CD 自動化的強大整合。",
   },
   {
@@ -233,7 +233,7 @@ export const commands = [
     command: "/install-slack-app",
     brief: "安裝 Claude Slack 應用程式",
     useCase: "將 Claude 加入 Slack 工作區",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/slack",
     detail: "安裝 Claude Slack 應用程式到你的 Slack 工作區。安裝後可以在 Slack 頻道中直接與 Claude 互動，方便團隊成員共同使用 Claude 的能力來解決問題、回答技術問題等。",
   },
   {
@@ -241,7 +241,7 @@ export const commands = [
     command: "/keybindings",
     brief: "開啟或建立鍵盤綁定設定檔",
     useCase: "自訂快捷鍵配置",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/settings",
+    docUrl: "https://code.claude.com/docs/en/settings",
     detail: "開啟鍵盤綁定設定檔（~/.claude/keybindings.json），讓你自訂 Claude Code 的快捷鍵配置。可以重新綁定現有的快捷鍵、新增組合鍵（chord bindings）、或設定自訂的快捷操作。如果設定檔不存在會自動建立。",
   },
   {
@@ -249,7 +249,7 @@ export const commands = [
     command: "/login",
     brief: "登入 Anthropic 帳號",
     useCase: "驗證身份以使用 Claude Code 服務",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/overview",
+    docUrl: "https://code.claude.com/docs/en/overview",
     detail: "登入你的 Anthropic 帳號以驗證身份。登入後才能使用 Claude Code 的完整功能。支援多種登入方式，包括電子郵件、SSO 單一登入等。認證資訊會安全地儲存在本機，不需要每次使用都重新登入。",
   },
   {
@@ -257,7 +257,7 @@ export const commands = [
     command: "/logout",
     brief: "登出 Anthropic 帳號",
     useCase: "結束目前的認證工作階段",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/overview",
+    docUrl: "https://code.claude.com/docs/en/overview",
     detail: "登出目前的 Anthropic 帳號，清除本機儲存的認證資訊。登出後需要重新登入才能使用 Claude Code。適合在共用電腦上使用完畢後確保帳號安全，或是需要切換到不同帳號時使用。",
   },
   {
@@ -265,7 +265,7 @@ export const commands = [
     command: "/mcp",
     brief: "管理 MCP 伺服器連線與 OAuth 認證",
     useCase: "設定外部 MCP 伺服器以擴展功能",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/mcp",
+    docUrl: "https://code.claude.com/docs/en/mcp",
     detail: "管理 Model Context Protocol（MCP）伺服器的連線設定。MCP 是一個開放協定，讓 Claude 能夠連接外部工具和資料源，例如資料庫、API、檔案系統、第三方服務等。透過 MCP 可以大幅擴展 Claude 的能力，讓它存取你的私有資料或操作外部系統。支援 OAuth 認證以安全地連接需要授權的服務。",
   },
   {
@@ -273,7 +273,7 @@ export const commands = [
     command: "/memory",
     brief: "編輯 CLAUDE.md 記憶檔與管理自動記憶",
     useCase: "更新跨工作階段的持久記憶",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/memory",
+    docUrl: "https://code.claude.com/docs/en/memory",
     detail: "開啟 CLAUDE.md 記憶檔進行編輯，並管理 Claude 的自動記憶功能。CLAUDE.md 中的內容會在每次新對話開始時被 Claude 讀取，作為持久的上下文。你可以在這裡記錄專案慣例（如「一律使用 TypeScript」）、架構決策、常用工具等資訊。自動記憶功能則讓 Claude 主動將重要資訊儲存供日後參考。",
   },
   {
@@ -281,7 +281,7 @@ export const commands = [
     command: "/mobile",
     brief: "顯示 QR Code 下載 Claude 手機應用程式",
     useCase: "取得行動裝置 App，別名：/ios、/android",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "顯示一個 QR Code，掃描後可以下載 Claude 手機應用程式。支援 iOS 和 Android 平台。別名包括 /ios 和 /android。手機版可以讓你在行動裝置上與 Claude 互動，方便在外出時繼續工作或查看任務進度。",
   },
   {
@@ -289,7 +289,7 @@ export const commands = [
     command: "/model [模型]",
     brief: "選擇或切換 AI 模型並調整努力程度",
     useCase: "切換到不同模型，例如：/model opus",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/model-config",
     detail: "選擇或切換目前工作階段使用的 AI 模型。可用的模型包括 Opus（最強大、最適合複雜推理）、Sonnet（平衡速度與能力）和 Haiku（最快速、適合簡單任務）。不帶參數時會顯示模型選擇器。選擇不同模型會影響回應品質、速度和費用。也可以使用 Alt+P 快捷鍵快速切換。",
   },
   {
@@ -297,7 +297,7 @@ export const commands = [
     command: "/output-style [風格]",
     brief: "切換輸出風格（預設、解釋型、學習型）",
     useCase: "調整回應的詳細程度與風格",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/output-styles",
+    docUrl: "https://code.claude.com/docs/en/output-styles",
     detail: "切換 Claude 回應的輸出風格。不同風格適合不同的使用場景：預設風格適合一般開發工作；解釋型風格會提供更詳細的說明，適合理解複雜概念；學習型風格會以教學方式呈現，適合學習新技術。你也可以建立自訂的輸出風格。",
   },
   {
@@ -305,7 +305,7 @@ export const commands = [
     command: "/passes",
     brief: "分享 Claude Code 免費體驗週給朋友",
     useCase: "邀請他人試用 Claude Code",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "產生免費體驗邀請碼，讓你的朋友或同事可以免費試用 Claude Code 一週。每個帳號有限定的邀請額度。這是推廣 Claude Code 給團隊成員或開發者社群的好方式。",
   },
   {
@@ -313,7 +313,7 @@ export const commands = [
     command: "/permissions",
     brief: "檢視或更新工具權限",
     useCase: "設定哪些工具可自動執行，別名：/allowed-tools",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/settings",
+    docUrl: "https://code.claude.com/docs/en/permissions",
     detail: "檢視和管理 Claude 可以使用的工具權限。你可以設定哪些工具（如 Bash、Edit、Read 等）可以自動執行而不需要每次確認，以及哪些工具需要明確授權。這讓你在安全性和便利性之間取得平衡。別名為 /allowed-tools。可以使用 glob 模式來精細控制權限，例如允許 Bash(git *) 但禁止 Bash(rm *)。",
   },
   {
@@ -321,7 +321,7 @@ export const commands = [
     command: "/plan",
     brief: "直接從提示進入計畫模式",
     useCase: "在執行前先規劃實作策略",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "進入計畫模式（Plan Mode），讓 Claude 在實際修改任何程式碼之前先擬定實作計畫。在計畫模式中，Claude 會分析需求、列出步驟、評估影響範圍，但不會實際執行任何變更。你可以審查計畫、提出修改建議，確認方向正確後再切換到一般模式執行。對於大型重構或複雜功能特別有用。",
   },
   {
@@ -329,7 +329,7 @@ export const commands = [
     command: "/plugin",
     brief: "管理 Claude Code 外掛程式",
     useCase: "安裝和設定第三方外掛",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/plugins",
     detail: "管理 Claude Code 的外掛程式系統。外掛可以新增自訂的斜線指令、工具和功能。你可以瀏覽可用的外掛、安裝新外掛、更新現有外掛或移除不需要的外掛。外掛是擴展 Claude Code 功能的重要機制，社群也在持續開發新的外掛。",
   },
   {
@@ -337,7 +337,7 @@ export const commands = [
     command: "/pr-comments [PR]",
     brief: "擷取並顯示 GitHub Pull Request 的留言",
     useCase: "檢視 PR 回饋，例如：/pr-comments 123",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/tutorials",
+    docUrl: "https://code.claude.com/docs/en/common-workflows",
     detail: "擷取並顯示指定 GitHub Pull Request 的所有留言和審查意見。可以輸入 PR 編號或 URL。Claude 會整理所有留言並提供摘要，幫助你快速了解審查者的回饋、需要修改的項目、以及討論的重點。也可以讓 Claude 根據留言直接進行對應的程式碼修改。",
   },
   {
@@ -345,7 +345,7 @@ export const commands = [
     command: "/privacy-settings",
     brief: "檢視與更新隱私設定",
     useCase: "管理資料隱私偏好（僅限 Pro/Max 方案）",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/settings",
+    docUrl: "https://code.claude.com/docs/en/settings",
     detail: "檢視和管理你的隱私設定，包括資料收集偏好、對話記錄儲存、以及 Anthropic 如何使用你的資料等選項。Pro 和 Max 方案的使用者可以設定更細緻的隱私控制。了解和管理你的隱私設定對於處理敏感專案特別重要。",
   },
   {
@@ -353,7 +353,7 @@ export const commands = [
     command: "/release-notes",
     brief: "檢視完整的更新日誌",
     useCase: "查看最新版本的變更與新功能",
-    docUrl: "https://docs.anthropic.com/en/release-notes/claude-code",
+    docUrl: "https://code.claude.com/docs/en/changelog",
     detail: "顯示 Claude Code 的完整更新日誌（Release Notes）。可以查看每個版本新增了哪些功能、修復了哪些 Bug、以及有哪些重大變更。這能幫助你了解最新的改進，並確保你正在使用最新的功能。",
   },
   {
@@ -361,7 +361,7 @@ export const commands = [
     command: "/reload-plugins",
     brief: "重新載入所有外掛程式而無需重啟",
     useCase: "外掛修改後套用變更",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/plugins",
     detail: "重新載入所有已安裝的外掛程式，讓修改立即生效而不需要重新啟動 Claude Code。這在開發或調整外掛時特別有用，可以快速迭代和測試外掛的變更。",
   },
   {
@@ -369,7 +369,7 @@ export const commands = [
     command: "/remote-control",
     brief: "讓工作階段可從 claude.ai 遠端控制",
     useCase: "從網頁版遠端操作終端機工作階段，別名：/rc",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/remote-control",
     detail: "將目前的終端機工作階段設定為可從 claude.ai 網頁版遠端控制。啟用後你可以從任何瀏覽器登入 claude.ai 來查看和操控這個工作階段。適合在手機上監控長時間任務的進度、或是從另一台電腦遠端操作。別名為 /rc。",
   },
   {
@@ -377,7 +377,7 @@ export const commands = [
     command: "/remote-env",
     brief: "設定遠端傳送工作階段的預設環境",
     useCase: "配置 Teleport 功能的遠端環境",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/claude-code-on-the-web#teleport-a-web-session-to-your-terminal",
     detail: "設定 Teleport 功能的遠端環境預設值。Teleport 允許你在本地終端機中恢復在 claude.ai 上建立的工作階段。此指令讓你預先配置遠端環境的參數，如工作目錄、環境變數等，確保 Teleport 能正確地在本地重建遠端工作環境。",
   },
   {
@@ -385,7 +385,7 @@ export const commands = [
     command: "/rename [名稱]",
     brief: "重新命名目前的工作階段",
     useCase: "整理工作階段，例如：/rename auth-refactor",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "為目前的工作階段指定一個有意義的名稱。命名後可以更容易地在工作階段列表中找到和恢復特定的對話。例如 /rename auth-refactor 會將目前工作階段命名為「auth-refactor」，之後可以用 claude -r auth-refactor 直接恢復。",
   },
   {
@@ -393,7 +393,7 @@ export const commands = [
     command: "/resume [工作階段]",
     brief: "以 ID 或名稱恢復對話，或顯示選擇器",
     useCase: "繼續先前的工作，別名：/continue",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "恢復先前儲存的工作階段。可以輸入工作階段的 ID 或名稱來直接恢復，或不帶參數來開啟工作階段選擇器，從列表中選擇要恢復的對話。恢復後對話歷史和上下文會完整還原。別名為 /continue。",
   },
   {
@@ -401,7 +401,7 @@ export const commands = [
     command: "/rewind",
     brief: "將對話與程式碼倒回先前的節點或摘要",
     useCase: "撤銷不滿意的變更，別名：/checkpoint",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/checkpointing",
     detail: "將對話歷史和程式碼變更倒回到先前的某個檢查點。如果 Claude 做的變更不符合預期，或是對話走錯了方向，可以使用這個指令回到之前的正確狀態。Claude 會列出可用的檢查點供你選擇。程式碼變更也會一併還原。別名為 /checkpoint。也可以用 Esc+Esc 快捷鍵觸發。",
   },
   {
@@ -409,7 +409,7 @@ export const commands = [
     command: "/sandbox",
     brief: "切換沙箱模式（限支援的平台）",
     useCase: "在隔離環境中執行操作",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/security",
+    docUrl: "https://code.claude.com/docs/en/sandboxing",
     detail: "切換沙箱（Sandbox）模式的開關。沙箱模式會在隔離的環境中執行 Claude 的操作，防止對主系統造成影響。這在執行可能有風險的操作時提供額外的安全保障。目前僅在部分支援的平台上可用（如 macOS、Linux 的特定設定）。",
   },
   {
@@ -417,7 +417,7 @@ export const commands = [
     command: "/security-review",
     brief: "分析待處理的變更是否有安全性漏洞",
     useCase: "在提交前進行安全性檢查",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/security",
+    docUrl: "https://code.claude.com/docs/en/security",
     detail: "讓 Claude 對目前所有待處理的程式碼變更進行全面的安全性審查。會檢查常見的安全漏洞，包括 SQL 注入、XSS 跨站腳本攻擊、命令注入、敏感資料洩露、不安全的相依套件等 OWASP Top 10 漏洞。在提交或合併程式碼之前執行此檢查是確保安全性的好習慣。",
   },
   {
@@ -425,7 +425,7 @@ export const commands = [
     command: "/skills",
     brief: "列出可用的技能",
     useCase: "查看自訂指令與內建技能",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/skills",
     detail: "列出所有目前可用的技能（Skills），包括內建技能和透過外掛新增的自訂技能。技能是預先定義的提示模板或自動化流程，可以透過斜線指令快速觸發。例如 /commit 技能可以自動分析變更並產生提交訊息。",
   },
   {
@@ -433,7 +433,7 @@ export const commands = [
     command: "/stats",
     brief: "視覺化顯示每日用量、連續使用天數與模型偏好",
     useCase: "查看使用統計與趨勢圖表",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "顯示豐富的使用統計資訊，包括每日使用量的視覺化圖表、連續使用天數（streak）、最常使用的模型、Token 消耗趨勢等。這些統計能幫助你追蹤使用習慣和效率變化。",
   },
   {
@@ -441,7 +441,7 @@ export const commands = [
     command: "/status",
     brief: "開啟設定（Status 分頁）顯示版本與帳號資訊",
     useCase: "快速查看目前的版本和登入狀態",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/settings",
+    docUrl: "https://code.claude.com/docs/en/settings",
     detail: "開啟設定介面的 Status 分頁，顯示目前的 Claude Code 版本號、登入的帳號資訊、方案類型、使用量配額、MCP 連線狀態等系統資訊。是快速確認環境狀態的最佳方式。",
   },
   {
@@ -449,7 +449,7 @@ export const commands = [
     command: "/statusline",
     brief: "設定 Claude Code 的狀態列顯示",
     useCase: "自訂底部狀態列的資訊顯示",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "自訂 Claude Code 底部狀態列顯示的資訊。可以選擇顯示或隱藏特定的狀態資訊，如目前模型、Token 使用量、權限模式、費用等。讓你根據自己的需求打造最適合的工作介面。",
   },
   {
@@ -457,7 +457,7 @@ export const commands = [
     command: "/stickers",
     brief: "訂購 Claude Code 貼紙",
     useCase: "取得實體周邊商品",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "開啟 Claude Code 實體貼紙的訂購頁面。Anthropic 提供免費的 Claude Code 品牌貼紙，可以貼在筆電、水瓶等地方。填寫收件地址後會免費寄送到你手上。",
   },
   {
@@ -465,7 +465,7 @@ export const commands = [
     command: "/tasks",
     brief: "列出與管理背景工作",
     useCase: "檢視和控制正在執行的背景任務",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "顯示所有正在執行和已完成的背景任務列表。可以查看每個任務的狀態、進度和結果，也可以停止正在執行的任務。當你使用 Ctrl+B 將任務移到背景執行時，可以用此指令來追蹤和管理這些任務。也可以使用 Ctrl+T 快捷鍵快速切換任務列表的顯示。",
   },
   {
@@ -473,7 +473,7 @@ export const commands = [
     command: "/terminal-setup",
     brief: "設定終端機鍵盤綁定（Shift+Enter 等）",
     useCase: "讓終端機支援多行輸入快捷鍵",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/overview",
+    docUrl: "https://code.claude.com/docs/en/terminal-config",
     detail: "設定你的終端機模擬器以支援 Claude Code 的進階鍵盤綁定。最重要的是設定 Shift+Enter 為換行鍵，這樣你可以在輸入框中方便地撰寫多行文字。支援的終端機包括 iTerm2、WezTerm、Ghostty、Kitty 等。設定完成後不需要再使用 \\ + Enter 的替代方式來換行。",
   },
   {
@@ -481,7 +481,7 @@ export const commands = [
     command: "/theme",
     brief: "變更色彩主題（淺色/深色/色盲友善版本）",
     useCase: "切換介面外觀主題",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "變更 Claude Code 的色彩主題。提供多種預設主題選擇，包括深色主題、淺色主題，以及專為色盲使用者設計的無障礙友善版本。選擇適合你工作環境和個人偏好的主題可以減少眼睛疲勞，提升使用體驗。",
   },
   {
@@ -489,7 +489,7 @@ export const commands = [
     command: "/upgrade",
     brief: "開啟升級頁面切換方案等級",
     useCase: "從免費方案升級到 Pro 或 Max",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "開啟方案升級頁面，讓你從目前的方案切換到更高等級。Pro 方案提供更多使用量和進階功能，Max 方案則提供最高的使用量限制和完整的功能存取。升級後可以享受更高的速率限制、更多的模型選擇等優勢。",
   },
   {
@@ -497,7 +497,7 @@ export const commands = [
     command: "/usage",
     brief: "顯示方案用量限制與速率限制狀態",
     useCase: "檢查目前的 API 配額使用情況",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "顯示目前方案的用量限制和速率限制狀態。包括每日/每月的 Token 配額、目前的使用百分比、速率限制的重置時間等資訊。幫助你規劃使用量，避免在關鍵時刻遇到限制。",
   },
   {
@@ -505,7 +505,7 @@ export const commands = [
     command: "/vim",
     brief: "在 Vim 與一般編輯模式之間切換",
     useCase: "啟用 Vim 風格的文字編輯操作",
-    docUrl: "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+    docUrl: "https://code.claude.com/docs/en/interactive-mode#built-in-commands",
     detail: "切換 Vim 編輯模式的開關。啟用後，Claude Code 的輸入框會支援 Vim 風格的編輯操作，包括一般模式（Normal）、插入模式（Insert）、以及各種 Vim 動作（motion）和文字物件（text object）。對於熟悉 Vim 的使用者來說，這可以大幅提升文字編輯效率。",
   },
 

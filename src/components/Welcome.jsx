@@ -139,7 +139,7 @@ function Welcome({ onBack, theme, toggleTheme }) {
               GitHub Repo
             </a>
             <a
-              href="https://docs.anthropic.com/en/docs/claude-code/overview"
+              href="https://code.claude.com/docs/en/overview"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 rounded-lg bg-accent/15 text-accent-light border border-accent/30 text-sm font-medium no-underline hover:bg-accent/25 transition-colors"
