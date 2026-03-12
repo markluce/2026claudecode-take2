@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect, useCallback } from "react";
 import { categories, commands } from "./data/commands";
 import BeginnerGuide from "./components/BeginnerGuide";
 import CommandModal from "./components/CommandModal";
+import Workshop from "./components/Workshop";
 
 const categoryBorderColors = {
   slash: "border-l-slash",
@@ -37,6 +38,7 @@ function App() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCmd, setSelectedCmd] = useState(null);
+  const [currentView, setCurrentView] = useState("main");
   const { theme, toggle: toggleTheme } = useTheme();
   const closeModal = useCallback(() => setSelectedCmd(null), []);
 
@@ -62,6 +64,16 @@ function App() {
     return map;
   }, [filteredCommands]);
 
+  if (currentView === "workshop") {
+    return (
+      <Workshop
+        onBack={() => setCurrentView("main")}
+        theme={theme}
+        toggleTheme={toggleTheme}
+      />
+    );
+  }
+
   return (
     <div className="max-w-[1200px] mx-auto">
       {/* Header */}
@@ -71,6 +83,15 @@ function App() {
           background: `linear-gradient(135deg, var(--t-header-from), var(--t-header-via), var(--t-header-to))`,
         }}
       >
+        {/* Workshop Button */}
+        <button
+          onClick={() => setCurrentView("workshop")}
+          className="absolute top-5 left-5 px-4 py-2.5 rounded-full bg-surface/60 backdrop-blur-sm border border-border text-sm cursor-pointer transition-all duration-300 hover:bg-surface-hover hover:scale-105 text-text-secondary flex items-center gap-2"
+        >
+          <span>📖</span>
+          <span>工作坊</span>
+        </button>
+
         {/* Theme Toggle */}
         <button
           onClick={toggleTheme}
