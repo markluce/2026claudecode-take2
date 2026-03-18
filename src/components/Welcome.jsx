@@ -125,13 +125,13 @@ function Welcome({ onBack, theme, toggleTheme }) {
           </h4>
           <div className="flex flex-wrap gap-3 justify-center">
             <a
-              href="https://markluce.ai/"
+              href="https://aipm.com.tw/"
               className="px-5 py-2.5 rounded-lg bg-accent/15 text-accent-light border border-accent/30 text-sm font-medium no-underline hover:bg-accent/25 transition-colors"
             >
-              markluce.ai
+              aipm.com.tw
             </a>
             <a
-              href="https://github.com/markluce/2026claudecode-take2"
+              href="https://github.com/aipmtw/2026claudecode-take2"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 rounded-lg bg-accent/15 text-accent-light border border-accent/30 text-sm font-medium no-underline hover:bg-accent/25 transition-colors"

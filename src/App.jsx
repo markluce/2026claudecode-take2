@@ -167,14 +167,14 @@ function App() {
         </p>
         <p className="text-text-secondary/80 text-sm font-bold mt-3">
           <a
-            href="https://markluce.ai/"
+            href="https://aipm.com.tw/"
             className="text-accent-light/70 hover:text-accent-light transition-colors no-underline"
           >
-            markluce.ai
+            aipm.com.tw
           </a>
           {" | "}
           <a
-            href="https://github.com/markluce/2026claudecode-take2"
+            href="https://github.com/aipmtw/2026claudecode-take2"
             target="_blank"
             rel="noopener noreferrer"
             className="text-accent-light/70 hover:text-accent-light transition-colors no-underline"
@@ -183,12 +183,12 @@ function App() {
           </a>
           {" | "}
           <a
-            href="https://markluce.github.io/2026claudecode-take2/"
+            href="https://aipm.com.tw/2026claudecode-take2/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-accent-light/70 hover:text-accent-light transition-colors no-underline"
           >
-            markluce.github.io
+            aipm.com.tw
           </a>
         </p>
       </header>
